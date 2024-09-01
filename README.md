@@ -1,5 +1,5 @@
-# IOT_Heating_Pad_esp32
-An IOT heating pad based on Espressif esp32 module  
+# IoT_Heating_Pad_esp32
+An IoT heating pad based on Espressif esp32 module  
 
 This project plans to use Espressif's ESP-32-DEV IoT module for control.  
 According to the size of the ESP-32 module and relay, the control box model was designed using SOLIDWORKS and then 3D printed. (See the attachment for the original design file)  
