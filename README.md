@@ -48,7 +48,8 @@ Assuming that the software control system crashes, the rated temperature of 42�
 Combined with Deep Stack, Compare Face, or projects, or using face recognition projects such as deep learning or OpenCV, you can also set different temperature values ​​according to different users to meet the customized needs of different groups of people.  
 
 ![](images/IMG_2461.jpeg)
- 
+![](images/IMG_2462.jpeg)
+
 Here's an firmware example:  
 ```sh
 esphome:
