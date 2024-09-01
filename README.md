@@ -1,4 +1,4 @@
-# IOT-Heating-Pad-esp32
+# IOT_Heating_Pad_esp32
 An IOT heating pad based on Espressif esp32 module  
 
 This project plans to use Espressif's ESP-32-DEV IoT module for control.  
