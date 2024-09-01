@@ -45,7 +45,7 @@ Plug the heating pad into the power adapter.
 Open the ESPHome server, find new devices and connect them. Next, open Home Assistant to add entities and add them to Lovelace-UI for manual temperature control. Use Node-RED to create automation for fully automatic personalized control of the heating pad: connect to Frigate-Face-Recognition through ESP-32-CAM to identify who is in front of the table, automatically turn on the heating and set it to his/her favorite temperature; automatically turn off after 5 minutes of leaving to save energy.  
 Now it is more user-friendly to remotely control the switch of the heating pad, set the temperature, and view the current temperature through the WEB interface or mobile phone application.  
 Assuming that the software control system crashes, the rated temperature of 42℃ thermistor will operate the relay to immediately disconnect the PTC heating module to prevent overheating and burns.  
-Combined with Deep Stack, Compare Face, or projects, or using face recognition projects such as deep learning, you can also set different temperature values ​​according to different users to meet the customized needs of different groups of people.  
+Combined with Deep Stack, Compare Face, or projects, or using face recognition projects such as deep learning or OpenCV, you can also set different temperature values ​​according to different users to meet the customized needs of different groups of people.  
 
 Notes:   
 The firmware flashing tool is in the /tools directory  
