@@ -47,6 +47,8 @@ Now it is more user-friendly to remotely control the switch of the heating pad, 
 Assuming that the software control system crashes, the rated temperature of 42℃ thermistor will operate the relay to immediately disconnect the PTC heating module to prevent overheating and burns.  
 Combined with Deep Stack, Compare Face, or projects, or using face recognition projects such as deep learning or OpenCV, you can also set different temperature values ​​according to different users to meet the customized needs of different groups of people.  
 
+![](images/IMG_2461.jpeg)
+ 
 Here's an firmware example:  
 ```sh
 esphome:
