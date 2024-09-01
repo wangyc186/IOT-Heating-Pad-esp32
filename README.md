@@ -77,9 +77,9 @@ sensor:
     id: ntc_temp
     update_interval: 10s
     filters:
-      - multiply: 3.3  # 需要根据具体的电阻和NTC的特性调整
-      - lambda: |-  # 温度转换公式，需根据NTC的特性曲线调整
-          return (10000.0 / (x - 10000.0)); # 这是个示例，需替换为正确的温度转换公式
+      - multiply: 3.3  # needs to be adjusted according to the specific resistance and NTC characteristics
+      - lambda: |-  # The temperature conversion formula must be adjusted according to the NTC characteristic curve
+          return (10000.0 / (x - 10000.0)); # This is an example and needs to be replaced with the correct temperature conversion formula
           # return temperature in Celsius.
 
 # Set the adjustable range for remote temperature control.
