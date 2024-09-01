@@ -47,6 +47,81 @@ Now it is more user-friendly to remotely control the switch of the heating pad, 
 Assuming that the software control system crashes, the rated temperature of 42℃ thermistor will operate the relay to immediately disconnect the PTC heating module to prevent overheating and burns.  
 Combined with Deep Stack, Compare Face, or projects, or using face recognition projects such as deep learning or OpenCV, you can also set different temperature values ​​according to different users to meet the customized needs of different groups of people.  
 
+Here's an firmware example:  
+```sh
+esphome:
+  name: temperature_control
+  platform: ESP32
+  board: esp32dev
+
+# Wi-Fi configuration
+wifi:
+  ssid: "Your_SSID"
+  password: "Your_PASSWORD"
+
+# Enable log
+logger:
+
+# OTA update
+ota:
+
+# Configure web server
+web_server:
+  port: 80
+
+# an NTC temperature sensor, assuming that a simple NTC temperature sensor is connected to an ADC pin
+sensor:
+  - platform: adc
+    pin: GPIO36
+    name: "NTC Temperature"
+    id: ntc_temp
+    update_interval: 10s
+    filters:
+      - multiply: 3.3  # 需要根据具体的电阻和NTC的特性调整
+      - lambda: |-  # 温度转换公式，需根据NTC的特性曲线调整
+          return (10000.0 / (x - 10000.0)); # 这是个示例，需替换为正确的温度转换公式
+          # return temperature in Celsius.
+
+# Set the adjustable range for remote temperature control.
+input_number:
+  temperature_setpoint:
+    name: "Temperature Setpoint"
+    min: 36.0
+    max: 40.0
+    step: 0.1
+    initial: 37.0
+
+# Relay controlling
+switch:
+  - platform: gpio
+    pin: GPIO2
+    id: relay1
+    inverted: True
+    restore_mode: ALWAYS_OFF
+
+  - platform: gpio
+    pin: GPIO4
+    id: relay2
+    inverted: True
+    restore_mode: ALWAYS_OFF
+
+# Control relay logic based on temperature and set point
+interval:
+  - interval: 1s
+    then:
+      - if:
+          condition:
+            and:
+              - lambda: 'return id(ntc_temp) < id(temperature_setpoint);'
+          then:
+            - switch.turn_on: relay1
+            - switch.turn_off: relay2
+          else:
+            - switch.turn_off: relay1
+            - switch.turn_on: relay2
+```
+
+
 Notes:   
 The firmware flashing tool is in the /tools directory  
 When using FDM printers for 3D printing, pay attention to these settings:  
